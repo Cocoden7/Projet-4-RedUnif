@@ -29,20 +29,6 @@ public class PlayerBehavior : MonoBehaviour
     	rb.MovePosition(rb.position += movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-    	if(col.gameObject.CompareTag("vide"))
-    	{
-    		print("collision");
-    		dead = true;
-    	}
-
-    	if(col.gameObject.CompareTag("glue"))
-    	{
-    		print("oiesghdç_iàgresjd");
-    	}
-    }
-
     void AddCredit()
     {
     	nbCredit = nbCredit + 1;

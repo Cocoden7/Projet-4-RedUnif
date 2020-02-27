@@ -5,15 +5,16 @@ using UnityEngine;
 public class EnemiesBehavior : MonoBehaviour
 {
 
-	private bool avance = true;
-	private int a = 0;
 	public Rigidbody2D rb;
-	Vector2 movement;
+	Vector2 movementX;
+	Vector2 movementY;
     // Start is called before the first frame update
     void Start()
     {
-		movement.y = 0.0f;
-		movement.x = 1.0f;
+		movementX.y = 0.0f;
+		movementX.x = 1.0f;
+		movementY.y = 1.0f;
+		movementY.x = 0.0f;
     	StartCoroutine(Movement());
     }
 
@@ -23,34 +24,100 @@ public class EnemiesBehavior : MonoBehaviour
 
     IEnumerator Movement()
     {
+    	List<int> tabl = QuelTabl();
+        float vitesse = QuelVitesse();
+        int a = 0;
     	while(true)
     	{
-    		yield return new WaitForSeconds(1.0f);
-    		if(a <= 0)
-    		{
-    			avance = true;
-    		}
-    		if(a >= 3)
-    		{
-    			avance = false;
-    		}
-    		if(avance)
-    		{
-    			rb.MovePosition(rb.position += movement);
-    			a++;
-    		}
-    		else
-    		{
-    			a = a - 1;
-    			rb.MovePosition(rb.position -= movement);
+    		foreach (var i in tabl)
+            {
+                // 1 = droite, 2 = gauche, 3 = haut, 4 = bas
+    		    if(i == 1)
+    		    {
+                    while(a<20)
+                    {
+                        yield return new WaitForSeconds(0.05f / vitesse);
+    		    	    rb.MovePosition(rb.position += movementX/20);
+                        a++;
+                    }
+                    a = 0;
+    		    }
+    		    else if(i == 2)
+    		    {
+                    while(a<20)
+                    {
+                        yield return new WaitForSeconds(0.05f / vitesse);
+                        rb.MovePosition(rb.position -= movementX/20);
+                        a++;
+                    }
+                    a = 0;
+                }
+    		    else if(i == 3)
+    		    {
+                    while(a<20)
+                    {
+                        yield return new WaitForSeconds(0.05f / vitesse);
+                        rb.MovePosition(rb.position += movementY/20);
+                        a++;
+                    }
+                    a = 0;
+                }
+    		    else if(i == 4)
+    		    {
+                    while(a<20)
+                    {
+                        yield return new WaitForSeconds(0.05f / vitesse);
+                        rb.MovePosition(rb.position -= movementY/20);
+                        a++;
+                    }
+                    a = 0;
+    		    }
     		}
     	}
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-    	print("credit gagne!");
-    	col.SendMessageUpwards("Dead", SendMessageOptions.DontRequireReceiver);
+        if(col.tag == "Player")
+        {
+            print("credit gagne!");
+    	    col.SendMessageUpwards("Dead", SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
+    float QuelVitesse()
+    {
+        if(rb.tag == "Enemy1")
+        {
+            return 1.0f;
+        }
+        else if(rb.tag == "Enemy2")
+        {
+            return 2.0f;
+        }
+        return 1.0f;
+    }
+
+    List<int> QuelTabl()
+    {
+        List<int> tabl = new List<int>();
+    	if(rb.tag == "Enemy1")
+    	{
+            tabl.Add(1);
+            tabl.Add(1);
+            tabl.Add(1);
+            tabl.Add(2);
+            tabl.Add(2);
+            tabl.Add(2);
+    	}
+        else if(rb.tag == "Enemy2")
+        {
+            tabl.Add(1);
+            tabl.Add(3);
+            tabl.Add(2);
+            tabl.Add(4);
+        }
+        return tabl;
     }
 
 }

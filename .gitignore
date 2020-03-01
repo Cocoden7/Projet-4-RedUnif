@@ -1,0 +1,2 @@
+# Ignore les fichiers .vs que git ne sait pas prendre en charge
+.vs/

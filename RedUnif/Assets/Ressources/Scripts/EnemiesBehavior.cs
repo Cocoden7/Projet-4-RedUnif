@@ -80,7 +80,7 @@ public class EnemiesBehavior : MonoBehaviour
     {
         if(col.tag == "Player")
         {
-            print("credit gagne!");
+            print("collision ennemi");
     	    col.SendMessageUpwards("Dead", SendMessageOptions.DontRequireReceiver);
         }
     }

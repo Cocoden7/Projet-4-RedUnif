@@ -9,19 +9,24 @@ public class PlayerBehavior : MonoBehaviour
 	Vector2 movement;
 	private bool dead = false;
 	private int nbCredit = 0;
+    int creditsNeeded = 60;
 
     // Update is called once per frame
     void Update()
     {
-    	if(dead)
+    	if(!dead)
     	{
-    		print("You die bro");
-    		Dead();
-    		dead = false;
+            // Retourne -1 ou 1
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
     	}
-    	// Retourne -1 ou 1
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        else
+        {
+            movement.x = 0;
+            movement.y = 0;
+            // Lance la methode GameOver dans GameManager
+            FindObjectOfType<DeadMenu>().GameOver();
+        }
     }
 
     void FixedUpdate()
@@ -31,22 +36,18 @@ public class PlayerBehavior : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        // Collision avec le vide
     	if(col.gameObject.CompareTag("vide"))
     	{
     		print("collision");
-    		dead = true;
-    	}
-
-    	if(col.gameObject.CompareTag("glue"))
-    	{
-    		print("oiesghdç_iàgresjd");
+            dead = true;
     	}
     }
 
     void AddCredit()
     {
     	nbCredit = nbCredit + 1;
-    	if (nbCredit >= 60)
+    	if (nbCredit >= creditsNeeded)
     	{
     		print("next level");
     	}
@@ -60,6 +61,6 @@ public class PlayerBehavior : MonoBehaviour
     void Dead()
     {
     	dead = true;
-    	Application.LoadLevel(0);
+    	//Application.LoadLevel(0);
     }
 }

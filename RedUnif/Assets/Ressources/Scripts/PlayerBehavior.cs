@@ -9,7 +9,8 @@ public class PlayerBehavior : MonoBehaviour
 	Vector2 movement;
 	private bool dead = false;
 	private int nbCredit = 0;
-    int creditsNeeded = 60;
+    int creditsNeeded = 5;
+    public GameObject NextLevelUI;
 
     // Update is called once per frame
     void Update()
@@ -40,17 +41,27 @@ public class PlayerBehavior : MonoBehaviour
     	if(col.gameObject.CompareTag("vide"))
     	{
     		print("collision");
-            dead = true;
+            Dead();
     	}
     }
 
     void AddCredit()
     {
-    	nbCredit = nbCredit + 1;
+    	nbCredit++;
     	if (nbCredit >= creditsNeeded)
     	{
-    		print("next level");
-    	}
+            SetUINextLevel();
+        }
+    }
+
+    // Affiche le UI du next level et lance la méthode loadLevel
+    void SetUINextLevel()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        FindObjectOfType<CameraBehavior>().incr = new Vector3(0, 0, 0); // Arrête la caméra
+        NextLevelUI.SetActive(true); // L'appel de la méthode se fait dans l'animation du UI
+        Time.timeScale = 1.0f;
+        print("ui active");
     }
 
     void OnGUI()
@@ -60,7 +71,6 @@ public class PlayerBehavior : MonoBehaviour
 
     void Dead()
     {
-    	dead = true;
-    	//Application.LoadLevel(0);
+        dead = true;
     }
 }

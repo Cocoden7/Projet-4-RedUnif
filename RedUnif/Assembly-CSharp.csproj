@@ -67,6 +67,7 @@
     <Compile Include="Assets\Ressources\Scripts\ElecTrap.cs" />
     <Compile Include="Assets\Ressources\Scripts\EnemiesBehavior.cs" />
     <Compile Include="Assets\Ressources\Scripts\GlueBehavior.cs" />
+    <Compile Include="Assets\Ressources\Scripts\NextLevel.cs" />
     <Compile Include="Assets\Ressources\Scripts\PlayerBehavior.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Inge/Bac 3/Q6/Projet 4/git-repo/Projet-4-RedUnif/RedUnif/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

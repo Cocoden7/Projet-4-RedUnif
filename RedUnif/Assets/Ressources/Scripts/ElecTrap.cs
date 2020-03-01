@@ -35,8 +35,9 @@ public class ElecTrap : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-    	if(test)
+    	if(test && col.tag == "Player")
     	{
+            // Appelle la fonction  Dead() de col
     		col.SendMessageUpwards("Dead", SendMessageOptions.DontRequireReceiver);
     	}
     }

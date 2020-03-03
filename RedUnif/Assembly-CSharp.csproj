@@ -58,6 +58,7 @@
      <Compile Include="Assets\Ressources\Scripts\DeadMenu.cs" />
      <Compile Include="Assets\Ressources\Scripts\ElecTrap.cs" />
      <Compile Include="Assets\Ressources\Scripts\EnemiesBehavior.cs" />
+     <Compile Include="Assets\Ressources\Scripts\FireBallBehavior.cs" />
      <Compile Include="Assets\Ressources\Scripts\GlueBehavior.cs" />
      <Compile Include="Assets\Ressources\Scripts\MoveButton.cs" />
      <Compile Include="Assets\Ressources\Scripts\NextLevel.cs" />

@@ -12,10 +12,17 @@ public class PlayerBehavior : MonoBehaviour
     int creditsNeeded = 5;
     public GameObject NextLevelUI;
 
+
+    /*float dirX, dirY;
+
+    // Move speed variable can be set in Inspector with slider
+    [Range(1f, 20f)]
+    public float moveSpeed = 5f;
+*/
     // Update is called once per frame
     void Update()
     {
-    	if(!dead)
+        if(!dead)
     	{
             // Retourne -1 ou 1
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -32,6 +39,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
+        print(movement);
     	rb.MovePosition(rb.position += movement * moveSpeed * Time.fixedDeltaTime);
     }
 
@@ -72,5 +80,10 @@ public class PlayerBehavior : MonoBehaviour
     void Dead()
     {
         dead = true;
+    }
+
+    public void Up()
+    {
+        movement.y = 1;
     }
 }

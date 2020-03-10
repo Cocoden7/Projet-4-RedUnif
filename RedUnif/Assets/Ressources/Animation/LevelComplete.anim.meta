@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 460af775a2d97f04db5106bca2b523e2
 NativeFormatImporter:
+=======
+<<<<<<< Updated upstream:RedUnif/Assets/Scenes/SceneRandom.unity.meta
+guid: bba65b9f934328446ac21ee7bc8be524
+DefaultImporter:
+=======
+guid: 460af775a2d97f04db5106bca2b523e2
+NativeFormatImporter:
+>>>>>>> Stashed changes:RedUnif/Assets/Ressources/Animation/LevelComplete.anim.meta
+>>>>>>> Stashed changes
   externalObjects: {}
   mainObjectFileID: 7400000
   userData: 

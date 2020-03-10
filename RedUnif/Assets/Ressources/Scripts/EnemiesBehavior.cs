@@ -117,6 +117,22 @@ public class EnemiesBehavior : MonoBehaviour
             tabl.Add(2);
             tabl.Add(4);
         }
+        else if(rb.tag == "Enemy3")
+        {
+            tabl.Add(1);
+            tabl.Add(1);
+            tabl.Add(1);
+            tabl.Add(1);
+            tabl.Add(2);
+            tabl.Add(2);
+            tabl.Add(2);
+            tabl.Add(2);
+        }
+        else
+        {
+            tabl.Add(1);
+            tabl.Add(2);
+        }
         return tabl;
     }
 

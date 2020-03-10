@@ -10,6 +10,10 @@ public class DeadMenu : MonoBehaviour
     public float restartDelay = 1f;
     public GameObject deadMenuUI;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes

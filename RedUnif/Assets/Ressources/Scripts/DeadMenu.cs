@@ -9,6 +9,7 @@ public class DeadMenu : MonoBehaviour
     //bool restart = false;
     public float restartDelay = 1f;
     public GameObject deadMenuUI;
+
     public void GameOver()
     {
         if(!gameHasEnded)

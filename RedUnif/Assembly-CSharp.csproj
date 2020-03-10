@@ -57,6 +57,7 @@
      <Compile Include="Assets\Ressources\Scripts\CoinBehavior.cs" />
      <Compile Include="Assets\Ressources\Scripts\DeadMenu.cs" />
      <Compile Include="Assets\Ressources\Scripts\ElecTrap.cs" />
+     <Compile Include="Assets\Ressources\Scripts\EndGame.cs" />
      <Compile Include="Assets\Ressources\Scripts\EnemiesBehavior.cs" />
      <Compile Include="Assets\Ressources\Scripts\FireBallBehavior.cs" />
      <Compile Include="Assets\Ressources\Scripts\GlueBehavior.cs" />

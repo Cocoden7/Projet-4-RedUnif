@@ -13,6 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     public GameObject NextLevelUI;
 
 
+
     /*float dirX, dirY;
 
     // Move speed variable can be set in Inspector with slider
@@ -36,15 +37,15 @@ public class PlayerBehavior : MonoBehaviour
             FindObjectOfType<DeadMenu>().GameOver();
         }
     }
-
-    void FixedUpdate()
+ 
+   void FixedUpdate()
     {
         print(movement);
     	rb.MovePosition(rb.position += movement * moveSpeed * Time.fixedDeltaTime);
     }
 
     void OnCollisionEnter2D(Collision2D col)
-    {
+    { 
         // Collision avec le vide
     	if(col.gameObject.CompareTag("vide"))
     	{
@@ -80,10 +81,5 @@ public class PlayerBehavior : MonoBehaviour
     void Dead()
     {
         dead = true;
-    }
-
-    public void Up()
-    {
-        movement.y = 1;
     }
 }

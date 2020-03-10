@@ -14,13 +14,9 @@ public class CoinBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "Player")
-        {
-            print("coin");
-            col.SendMessageUpwards("AddCredit", SendMessageOptions.DontRequireReceiver);
-            Destroy(gameObject);
-        }
-
+    	print("credit gagne!");
+    	col.SendMessageUpwards("AddCredit", SendMessageOptions.DontRequireReceiver);
+    	Destroy(gameObject);
     }
 
 }

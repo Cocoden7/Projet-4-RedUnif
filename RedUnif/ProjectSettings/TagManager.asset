@@ -6,9 +6,11 @@ TagManager:
   tags:
   - vide
   - glue
-  - Enemy2
   - Enemy1
-  - Credit
+  - Enemy2
+  - SpawnPoint
+  - Chemin
+  - Enemy3
   layers:
   - Default
   - TransparentFX
@@ -57,7 +59,4 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 978620431
-    locked: 0
-  - name: UI
-    uniqueID: 371916547
     locked: 0

@@ -80,7 +80,7 @@ public class EnemiesBehavior : MonoBehaviour
     {
         if(col.tag == "Player")
         {
-            print("collision ennemi");
+            print("Je t'ai mange!");
     	    col.SendMessageUpwards("Dead", SendMessageOptions.DontRequireReceiver);
         }
     }
@@ -116,6 +116,22 @@ public class EnemiesBehavior : MonoBehaviour
             tabl.Add(3);
             tabl.Add(2);
             tabl.Add(4);
+        }
+        else if(rb.tag == "Enemy3")
+        {
+            tabl.Add(1);
+            tabl.Add(1);
+            tabl.Add(1);
+            tabl.Add(1);
+            tabl.Add(2);
+            tabl.Add(2);
+            tabl.Add(2);
+            tabl.Add(2);
+        }
+        else
+        {
+            tabl.Add(1);
+            tabl.Add(2);
         }
         return tabl;
     }

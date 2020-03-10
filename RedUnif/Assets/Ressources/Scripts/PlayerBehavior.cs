@@ -9,67 +9,47 @@ public class PlayerBehavior : MonoBehaviour
 	Vector2 movement;
 	private bool dead = false;
 	private int nbCredit = 0;
-    int creditsNeeded = 5;
-    public GameObject NextLevelUI;
 
-
-    /*float dirX, dirY;
-
-    // Move speed variable can be set in Inspector with slider
-    [Range(1f, 20f)]
-    public float moveSpeed = 5f;
-*/
     // Update is called once per frame
     void Update()
     {
-        if(!dead)
+    	if(dead)
     	{
-            // Retourne -1 ou 1
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
+    		print("You die bro");
+    		Dead();
+    		dead = false;
     	}
-        else
-        {
-            movement.x = 0;
-            movement.y = 0;
-            // Lance la methode GameOver dans GameManager
-            FindObjectOfType<DeadMenu>().GameOver();
-        }
+    	// Retourne -1 ou 1
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate()
     {
-        print(movement);
     	rb.MovePosition(rb.position += movement * moveSpeed * Time.fixedDeltaTime);
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        // Collision avec le vide
     	if(col.gameObject.CompareTag("vide"))
     	{
     		print("collision");
-            Dead();
+    		dead = true;
+    	}
+
+    	if(col.gameObject.CompareTag("glue"))
+    	{
+    		print("oiesghdç_iàgresjd");
     	}
     }
 
     void AddCredit()
     {
-    	nbCredit++;
-    	if (nbCredit >= creditsNeeded)
+    	nbCredit = nbCredit + 1;
+    	if (nbCredit >= 60)
     	{
-            SetUINextLevel();
-        }
-    }
-
-    // Affiche le UI du next level et lance la méthode loadLevel
-    void SetUINextLevel()
-    {
-        rb.constraints = RigidbodyConstraints2D.FreezePosition;
-        FindObjectOfType<CameraBehavior>().incr = new Vector3(0, 0, 0); // Arrête la caméra
-        NextLevelUI.SetActive(true); // L'appel de la méthode se fait dans l'animation du UI
-        Time.timeScale = 1.0f;
-        print("ui active");
+    		print("next level");
+    	}
     }
 
     void OnGUI()
@@ -79,11 +59,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void Dead()
     {
-        dead = true;
-    }
-
-    public void Up()
-    {
-        movement.y = 1;
+    	dead = true;
+    	Application.LoadLevel(0);
     }
 }

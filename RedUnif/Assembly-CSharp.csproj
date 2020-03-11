@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Ressources\Scripts\CameraBehavior.cs" />
+     <Compile Include="Assets\Ressources\Scripts\CheminTemplate.cs" />
      <Compile Include="Assets\Ressources\Scripts\CoinBehavior.cs" />
      <Compile Include="Assets\Ressources\Scripts\DeadMenu.cs" />
      <Compile Include="Assets\Ressources\Scripts\ElecTrap.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Ressources\Scripts\MoveButton.cs" />
      <Compile Include="Assets\Ressources\Scripts\NextLevel.cs" />
      <Compile Include="Assets\Ressources\Scripts\PlayerBehavior.cs" />
+     <Compile Include="Assets\Ressources\Scripts\SpawnerSalleBehavior.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Henri/Documents/Université/BAC 3/Q2/LFSAB1509 Projet 4/RedUnif_git/Projet-4-RedUnif/RedUnif/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

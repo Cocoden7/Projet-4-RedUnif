@@ -9,14 +9,6 @@ public class DeadMenu : MonoBehaviour
     //bool restart = false;
     public float restartDelay = 1f;
     public GameObject deadMenuUI;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
     public void GameOver()
     {
         if(!gameHasEnded)
